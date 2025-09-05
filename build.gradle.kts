@@ -1,10 +1,10 @@
 plugins {
-    id 'java'
-    id 'application'
-    id 'maven-publish' 
+    java
+    application
+    `maven-publish`
 }
 
-group = "com.alulescano"   
+group = "com.alulescano"
 version = "1.0.0"
 
 repositories {
@@ -24,11 +24,11 @@ tasks.test {
     useJUnitPlatform()
 }
 
-//  Configuración para publicar en GitHub Packages
+// Configuración para publicar en GitHub Packages
 publishing {
     publications {
-        mavenJava(MavenPublication) {
-            from components.java
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
         }
     }
     repositories {
